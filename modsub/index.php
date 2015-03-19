@@ -124,6 +124,7 @@ class SC_mod_tools_phpadmin_index {
 			$_SESSION['PMA_single_signon_user'] = TYPO3_db_username;
 			$_SESSION['PMA_single_signon_password'] = TYPO3_db_password;
 			$_SESSION['PMA_single_signon_host'] = TYPO3_db_host;
+			$_SESSION['PMA_single_signon_port'] = $GLOBALS['TYPO3_CONF_VARS']['DB']['port'];
 			$_SESSION['PMA_single_signon_only_db'] = TYPO3_db;
 
 				// Configure some other parameters
@@ -230,10 +231,10 @@ class SC_mod_tools_phpadmin_index {
 if ( !defined('TYPO3_MODE') ) {
 	die ('<h1>Error</h1><p>Unable to determine TYPO3_MODE.</p>');
 } else {
-	
+
 		// Proceed if BE loaded
 	if ( TYPO3_MODE == 'BE' ) {
-		
+
 			// Apply access restrictions
 		$BE_USER->modAccess($MCONF, 1);
 
@@ -241,7 +242,7 @@ if ( !defined('TYPO3_MODE') ) {
 		$SOBE = t3lib_div::makeInstance('SC_mod_tools_phpadmin_index');
 		$SOBE->main();
 		$SOBE->printContent();
-		
+
 	} else {
 		die ('<h1>Error</h1><p>The TYPO3 Backend is required for phpMyAdmin module but was not loaded.</p>');
 	}
