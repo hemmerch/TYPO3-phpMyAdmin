@@ -1,0 +1,5 @@
+{
+  "name": "hemmer/phpmyadmin",
+  "type": "typo3-cms-extension",
+  "description": "PHPMyAdmin"
+}
